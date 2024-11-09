@@ -1,0 +1,88 @@
+#Nama:Bagas akbar magriban
+#Nim:06500240004
+
+#Latihan 1
+def rata_rata():
+    jumlah = 0
+    hasil = 0
+    while True:
+        data = input("Masukkan data (tekan enter untuk selesai): ")
+        if data == "":
+            if jumlah == 0:  
+                return 0
+            return hasil / jumlah
+        
+        elif data in ['A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D', 'E']:
+            jumlah += 1
+            if data == 'A':
+                hasil += 4.00
+                print("nilai = 4.00")
+            elif data == 'A-':
+                hasil += 3.75
+                print("nilai = 3.75")
+            elif data == 'B+':
+                hasil += 3.50
+                print("nilai = 3.50")
+            elif data == 'B':
+                hasil += 3.00
+                print("nilai = 3.00")
+            elif data == 'B-':
+                hasil += 2.75
+                print("nilai = 2.75")
+            elif data == 'C+':
+                hasil += 2.50
+                print("nilai = 2.50")
+            elif data == 'C':
+                hasil += 2.00
+                print("nilai = 2.00")
+            elif data == 'C-':
+                hasil += 1.75
+                print("nilai = 1.75")
+            elif data == 'D':
+                hasil += 1.50
+                print("nilai = 1.50")
+            elif data == 'E':
+                hasil += 1.25
+                print("nilai = 1.25")
+        else:
+            print("Invalid input")
+
+rata = rata_rata()
+print("Rata-rata: ", rata)
+
+
+
+#Latihan 2
+ulang = "y"
+
+while ulang.lower() == "y":
+    try:
+        bulan = int(input("Masukkan bulan (1-12): "))
+        tahun = int(input("Masukkan tahun: "))
+    except ValueError:
+        print("Input harus angka! Coba lagi ya.")
+        continue
+
+    def cek_jumlah_hari(bulan, tahun):
+        if bulan < 1 or bulan > 12:
+            print("Bulan tidak valid, masukkan angka 1-12.")
+            return
+
+        if bulan in [1, 3, 5, 7, 8, 10, 12]:
+            print("Bulan ini ada 31 hari.")
+        elif bulan == 2:
+            if (tahun % 4 == 0 and tahun % 100 != 0) or (tahun % 400 == 0):
+                print("Bulan ini ada 29 hari (tahun kabisat).")
+            else:
+                print("Bulan ini ada 28 hari.")
+        else:
+            print("Bulan ini ada 30 hari.")
+
+    cek_jumlah_hari(bulan, tahun)
+    ulang = input("Mau cek lagi? (y/n): ")
+
+if ulang.lower() == "n":
+    print("Terima kasih sudah mencoba!")
+
+
+
